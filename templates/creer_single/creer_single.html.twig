@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un single{% endblock %}
+
+{% block content %}
+    <h3>Ajouter un single</h3>
+    {{ form_start(form) }}
+    {{ form_row(form.titre) }}
+    {{ form_rest(form) }}
+{% endblock %}

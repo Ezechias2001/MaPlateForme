@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Accueil {% endblock %}
+
+{% block body %}
+    {{include('__fragments/carousel.html.twig')}}
+    
+    {{ include('__fragments/demoAlbum.html.twig')}}
+    {{ include('__fragments/demoSon.html.twig')}}  
+    {{ include('__fragments/demoGenre.html.twig')}}  
+{% endblock %}
+

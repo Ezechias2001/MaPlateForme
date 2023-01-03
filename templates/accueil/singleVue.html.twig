@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Télécharger {{ single.titre }} {% endblock %}
+
+{% block body %}
+            <!-- ============================================-->
+        <!-- <section SON GRATUIT > begin ============================-->
+          <section class="py-0">
+            <div class="container-small">
+              <div class="row g-5 mb-5 mb-lg-8" data-product-details="data-product-details">
+                <div class="col-12 col-lg-6">
+                  <div class="row g-3 mb-5">
+                    <div class="col-12 col-md-10 col-lg-12 col-xl-10">
+                      <div class="d-flex align-items-center border rounded-3 text-center h-100">
+                        <div class="swiper swiper-container theme-slider" data-thumb-target="swiper-products-thumb" >
+                          <img class="w-100 rounded-2" src=" {{ asset('upload/singlesImages/'~single.img) }}" alt="">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-flex"><a class="btn btn-lg btn-success rounded-pill w-100 fs--1 fs-sm-0"><span class="fas fa-download me-3"></span>Telecharger gratuitement</a></div>
+                </div>
+                <div class="col-12 col-lg-6">
+                  <div class="d-flex flex-column justify-content-between h-100">
+                    <div>
+                      <div class="d-flex flex-wrap">
+                        <div class="me-2"><span class="fa fa-star text-warning"></span><span class="fa fa-star text-warning"></span><span class="fa fa-star text-warning"></span><span class="fa fa-star text-warning"></span><span class="fa fa-star text-warning"></span></div>
+                        <p class="text-primary fw-semi-bold mb-2">6548 personnes ont téléchargé ceci </p>
+                      </div>
+                      <h3 class="mb-3 lh-sm">{{single.titre}}</h3>
+                      <div class="d-flex flex-wrap align-items-start"><a class="fw-semi-bold" href="#!"> {{ single.auth }} </a></div>
+                      <div class="d-flex flex-wrap align-items-center">
+                        <h1 class="me-3"><span class="badge badge-phoenix fs--2 badge-phoenix-primary"><span class="badge-label">Gratuit</span><span class="ms-1" data-feather="gift" style="height:12.8px;width:12.8px;"></span></span></h1> 
+                      </div>
+                      <p class="text-success fw-semi-bold fs-1 mb-2">Description</p>
+                      <p class="mb-2 text-800">11ème titre de son album lithopedon, l'ancien membre de l'écuyerie 92i de Booba propose un titre raggaeton aussi sombre que son univers.  
+                      <div class="d-flex mt-6" >
+                          <audio controls src=" {{ asset('upload/singlesMP3/'~single.son ) }}" style="width:100%!important;">
+                      </audio>   
+                    </div>
+                    </div>
+                    </div>
+                    <div>
+                  </div>
+                </div>
+
+            </div><!-- end of .container-->
+          </section><!-- <section> close ============================-->
+          <!-- ============================================-->
+
+{% endblock %}

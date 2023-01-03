@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+  
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+    <title> {% block title %} Accueil {% endblock %} </title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{ include('__fragments/css.html.twig') }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script type="module" src="https://cdn.skypack.dev/@hotwired/turbo"></script>
+</head>
+    <body>
+        <main class="main" id="top">
+            <div class="container-fluid px-0" data-layout="container">
+                {{ include('__fragments/nav.html.twig') }}
+                {# CORPS #}
+                <div class="content">
+                    <div class="pb-5">
+                        <div class="row g-4">
+                            {% block body %}
+                            {% endblock %}
+                        </div>
+                    </div>
+                    {% block content %}
+                    {% endblock %}
+                    {{ include('__fragments/footer.html.twig') }}
+                </div>
+            </div>
+            <script>
+                var navbarTopShape = localStorage.getItem('phoenixNavbarTopShape');
+                var navbarPosition = localStorage.getItem('phoenixNavbarPosition');
+                var body = document.querySelector('body');
+                var navbarDefault = document.querySelector('#navbarDefault');
+                var navbarTopNew = document.querySelector('#navbarTopNew');
+                var navbarSlim = document.querySelector('#navbarSlim');
+                var navbarTopSlimNew = document.querySelector('#navbarTopSlimNew');
+
+                var documentElement = document.documentElement;
+                var navbarVertical = document.querySelector('.navbar-vertical');
+
+                if (navbarTopShape === 'slim' && navbarPosition === 'vertical') {
+                navbarDefault.remove();
+                navbarTopNew.remove();
+                navbarTopSlimNew.remove();
+                navbarSlim.style.display = 'block';
+                navbarVertical.style.display = 'inline-block';
+                body.classList.add('nav-slim');
+                } else if (navbarTopShape === 'slim' && navbarPosition === 'horizontal') {
+                navbarDefault.remove();
+                navbarVertical.remove();
+                navbarTopNew.remove();
+                navbarSlim.remove();
+                navbarTopSlimNew.removeAttribute('style');
+                body.classList.add('nav-slim');
+                } else if (navbarTopShape === 'default' && navbarPosition === 'horizontal') {
+                navbarDefault.remove();
+                navbarSlim.remove();
+                navbarVertical.remove();
+                navbarTopSlimNew.remove();
+                navbarTopNew.removeAttribute('style');
+                documentElement.classList.add('navbar-horizontal')
+
+                } else {
+                body.classList.remove('nav-slim');
+                navbarSlim.remove();
+                navbarTopNew.remove();
+                navbarTopSlimNew.remove();
+                navbarDefault.removeAttribute('style');
+                navbarVertical.removeAttribute('style');
+                }
+
+                var navbarTopStyle = localStorage.getItem('phoenixNavbarTopStyle');
+                var navbarTop = document.querySelector('.navbar-top');
+                if (navbarTopStyle === 'darker') {
+                navbarTop.classList.add('navbar-darker');
+                }
+
+                var navbarVerticalStyle = localStorage.getItem('phoenixNavbarVerticalStyle');
+                var navbarVertical = document.querySelector('.navbar-vertical');
+                if (navbarVerticalStyle === 'darker') {
+                navbarVertical.classList.add('navbar-darker');
+                }
+            </script>
+        </main>
+        {{include('__fragments/script.html.twig')}}
+    </body>
+</html>
