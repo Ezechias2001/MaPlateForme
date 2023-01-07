@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ playlist.NomPlaylist }}{% endblock %}
+
+{% block body %}
+        <div class="cover-image">
+            <div class="m-0 card-header hover-actions-trigger d-flex justify-content-center align-items-end position-relative mb-7 mb-xxl-0" style="min-height: 300px; ">
+                <div class="bg-holder rounded-1" style="background-image:url({{ asset('upload/PlaylistImages/'~playlist.ImagePlaylist) }});"></div>
+                <div class="hover-actions end-0 bottom-0 pe-1 pb-2 text-white">
+                    <a class="text-white hover-text-decoration-none me-4" href="{{ path('modifierPlaylist', {'id': playlist.id}) }}"><span class="text-info me-2 overlay-icon" data-feather="edit"></span>
+                    Modifier
+                    </a>
+                </div>
+                <!--/.bg-holder-->
+                <div class="d-inline-flex feed-profile text-white fs-xl-3 fw-black pb-5">
+                    <p> {{ playlist.NomPlaylist }}</p> <br>
+                </div>
+            </div>
+        </div>
+    <p class="mt-0 mb-0">{{ playlist.description }}</p>
+
+        <div>
+            {% for i in playlist.piste %}
+                <div class="mt-6" >
+                    <p class="d-inline-flex fw-black">{{ i.titre }}</p>
+                    <audio controls src=" {{ asset('upload/singlesMP3/'~i.son ) }}" style="width:100%!important;">
+                    </audio>
+                     <a href="{{ path('retirerPiste', {'id': playlist.id,'idPiste': i.id}) }}" class="me-4" ><span class="text-danger me-2 overlay-icon" data-feather="trash-2"></span>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        </tbody>
+    </table>
+{% endblock %}

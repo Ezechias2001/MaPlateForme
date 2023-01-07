@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier {{ playlist.NomPlaylist }}{% endblock %}
+
+{% block body %}
+    <h1>Modifier {{ playlist.NomPlaylist }}</h1>
+        {{ include('playlist/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+    <div class="d-inline-flex">
+        {{ include('playlist/_delete_form.html.twig') }}
+    </div>
+    <a class="btn btn-primary" href="{{ path('papa', {'id': playlist.id}) }}"> <span class="me-2" data-feather="plus-circle"></span> Ajouter un son à la playlist </a>
+    <a class="hover-text-decoration-none" href="{{ path('playlists') }}"> Retour</a>
+{% endblock %}

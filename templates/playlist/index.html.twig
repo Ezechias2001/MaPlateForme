@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Playlists{% endblock %}
+
+{% block body %}
+    <section class="pt-0 pb-0">
+    <div class="container-small">
+    <h2 class="mb-0">Les Playlists  </h2>
+    <div class="row gx-3 gy-5">
+        
+        {% for playlist in playlists %} {# SINGLE #}
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 hover-actions-trigger btn-reveal-trigger">
+                  <div class="d-flex flex-center rounded-3 " style="height:180px;">
+                        <a href="{{ path('playlist', {'id' : playlist.id }) }}"><img class="mw-100 rounded-2" src="{{ asset('upload/PlaylistImages/'~playlist.ImagePlaylist) }}"alt="Dell Technologies" height="height" /> </a>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <span class="nav-link-text-wrapper">
+                          <a href="{{ path('playlist', {'id' : playlist.id }) }}" class="text-dark hover-text-decoration-none"><h5 class="nav-link-text">{{ playlist.NomPlaylist}} </h5></a>
+                    </span>
+                  </div>
+                </div>
+        {% endfor %}
+    <div class="d-inline-flex">
+        <a  href="{{ path('creerPlaylist') }}" class="btn btn-primary rounded-pill me-1 mb-1" type="button">
+            <span data-feather="plus-circle" class="me-2"></span>Créer une playlist
+        </a>
+    </div><!-- end of .container-->
+    </section><!-- <section> close ============================-->
+    <!-- ============================================-->
+{% endblock %}

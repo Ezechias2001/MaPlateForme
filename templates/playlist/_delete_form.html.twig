@@ -1,0 +1,4 @@
+<form method="post" action="{{ path('supprimerPlaylist', {'id': playlist.id}) }}" onsubmit="return confirm('Etes-vous sûr de voiloir supprimer cette playlist ?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ playlist.id) }}">
+    <button class="btn btn-danger"> <span class="me-2" data-feather="trash-2"></span> Supprimer la playlist</button>
+</form>
