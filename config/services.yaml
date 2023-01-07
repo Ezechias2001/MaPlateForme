@@ -6,6 +6,7 @@
 parameters:
     single_image : '%kernel.project_dir%/public/upload/singlesImages'
     single_audio : '%kernel.project_dir%/public/upload/singlesMP3'
+    playlist_image : '%kernel.project_dir%/public/upload/PlaylistImages'
 
 services:
     # default configuration for services in *this* file

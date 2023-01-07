@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajout à playlist{% endblock %}
+
+{% block body %}
+    <h1>Ajouter un son à {{ playlist.NomPlaylist }}</h1>
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+    <button class="btn btn-success mt-4"> {{ button_label|default('Ajouter') }}</button>
+    {{ form_end(form) }}
+    <form method="post" action="{{ path('viderPiste', {'id': playlist.id}) }}"  onsubmit="return confirm('Etes-vous sûr de voiloir supprimer cette playlist ?');">
+        <button class="btn btn-danger mt-4">Vider cette playlist</button>
+    </form>
+{% endblock %}
