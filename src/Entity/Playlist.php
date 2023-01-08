@@ -29,6 +29,10 @@ class Playlist
     #[ORM\ManyToMany(targetEntity: Single::class)]
     private Collection $piste;
 
+    #[ORM\ManyToOne(inversedBy: 'playlist')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $user = null;
+
     public function __construct()
     {
         $this->piste = new ArrayCollection();
@@ -94,6 +98,18 @@ class Playlist
     public function removePiste(Single $piste): self
     {
         $this->piste->removeElement($piste);
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
         return $this;
     }
 

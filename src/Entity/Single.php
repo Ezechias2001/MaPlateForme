@@ -28,6 +28,16 @@ class Single
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $Son = null;
 
+    #[ORM\ManyToOne(inversedBy: 'single')]
+    private ?Album $album = null;
+
+    #[ORM\ManyToOne(inversedBy: 'single')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $user = null;
+
+    #[ORM\ManyToOne(inversedBy: 'single')]
+    private ?Genre $genre = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -95,5 +105,41 @@ class Single
     public function __toString()
     {
         return $this->titre. " - ".$this->Auth;
+    }
+
+    public function getAlbum(): ?Album
+    {
+        return $this->album;
+    }
+
+    public function setAlbum(?Album $album): self
+    {
+        $this->album = $album;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    public function getGenre(): ?Genre
+    {
+        return $this->genre;
+    }
+
+    public function setGenre(?Genre $genre): self
+    {
+        $this->genre = $genre;
+
+        return $this;
     }
 }
