@@ -60,6 +60,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->playlist = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->pseudo;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

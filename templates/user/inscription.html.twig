@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+    <title> {% block title %} Inscrivez-vous !{% endblock %} </title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{ include('__fragments/css.html.twig') }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {#<script type="module" src="https://cdn.skypack.dev/@hotwired/turbo"></script>#}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+</head>
+{% block body %}
+<body>
+<main class="main" id="top">
+    <div class="container-fluid px-0" data-layout="container">
+    <main class="main" id="top">
+        <div class="container-fluid px-0" data-layout="container">
+            <div class="container">
+                <div class="row flex-center min-vh-100 py-5">
+                    <div class="col-sm-10 col-md-8 col-lg-5 col-xl-5 col-xxl-3">
+                        <a class="d-flex flex-center text-decoration-none mb-4" href="../../../index.html">
+                            <div class="d-flex align-items-center fw-bolder fs-5 d-inline-block">
+                                <img src="../../../assets/img/icons/logo.png" alt="phoenix" width="58" />
+                            </div>
+                        </a>
+                        <div class="text-center mb-0">
+                            <h3 class="text-1000">Inscription </h3>
+                            <p class="text-700">Créer un compte en un clic</p>
+                        </div>
+                        {{ form_start(form) }}
+                            <div class="mb-3 text-start">
+                                <label class="form-label" for="email">Email</label>
+                                {{ form_widget(form.email) }}
+                            </div>
+                            <div class="mb-3 text-start">
+                                <label class="form-label" for="email">Nom d'artiste</label>
+                                {{ form_widget(form.pseudo) }}
+                            </div>
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label" for="password">Nom</label>
+                                    {{ form_widget(form.nom) }}
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="confirmPassword">Prenom</label>
+                                    {{ form_widget(form.prenom) }}
+                                </div>
+                            </div>
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label" for="password">Mot de passe</label>
+                                    {{ form_widget(form.password.first) }}
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="confirmPassword">Confirmer Mot de passe</label>
+                                    {{ form_widget(form.password.second) }}
+                                </div>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" id="termsService" type="checkbox" required="required"/>
+                                <label class="form-label fs--1 text-none" for="termsService">
+                                    J'accepte les<a href="#!"> termes </a>et <a href="#!">conditions d'utilisations</a>
+                                </label>
+                            </div>
+                            <div>{{ form_widget(form.Soumettre)}} </div>
+                            <div class="text-center">
+                                <a class="fs--1 fw-bold" href="sign-in.html">
+                                    Se connecter à un compte existant
+                                </a>
+                            </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+        {{include('__fragments/script.html.twig')}}
+</body>
+{% endblock %}
+</html>

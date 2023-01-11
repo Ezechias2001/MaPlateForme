@@ -23,7 +23,7 @@ class PlaylistController extends AbstractController
     #[Route('/', name: 'playlists', methods: ['GET'])]
     public function index(PlaylistRepository $playlistRepository): Response
     {
-        return $this->render('playlist/index.html.twig', [
+        return $this->render('playlist/inscription.html.twig', [
             'playlists' => $playlistRepository->findAll(),
         ]);
     }

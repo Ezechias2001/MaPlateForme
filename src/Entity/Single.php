@@ -19,9 +19,6 @@ class Single
     #[ORM\Column(nullable: true)]
     private ?float $prix = null;
 
-    #[ORM\Column(length: 30)]
-    private ?string $Auth = null;
-
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $img = null;
 
@@ -63,18 +60,6 @@ class Single
     public function setPrix(?float $prix): self
     {
         $this->prix = $prix;
-
-        return $this;
-    }
-
-    public function getAuth(): ?string
-    {
-        return $this->Auth;
-    }
-
-    public function setAuth(string $Auth): self
-    {
-        $this->Auth = $Auth;
 
         return $this;
     }

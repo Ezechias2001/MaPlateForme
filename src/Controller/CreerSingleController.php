@@ -54,6 +54,7 @@ class CreerSingleController extends AbstractController
                 }
                 $single->setSon($newFilename);
             }
+            $single->setUser($this->getUser());
             $manager = $doctrine->getManager();
             $manager->persist($single);
             $manager->flush();
